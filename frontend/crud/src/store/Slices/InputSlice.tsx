@@ -46,28 +46,28 @@ const InputSlice = createSlice({
   name: "InputSlice",
   initialState,
   reducers: {
-    /*  */
+    //
     setCurrentIndex: (state, action: PayloadAction<number>) => {
       state.currentIndex = action.payload;
     },
     setShowSaveSection: (state, action: PayloadAction<boolean>) => {
       state.showSaveSection = action.payload;
     },
-    /* DropdownVal */
+    // DropdownVal
     setDropDownVal: (state, action: PayloadAction<DorpDownArrType>) => {
       state.DropDownVal = action.payload;
     },
     setShowDropDown: (state, action: PayloadAction<boolean>) => {
       state.showDropDown = action.payload;
     },
-    /* users inputValue */
+    // users inputValue
     setInputValue: (state, action: PayloadAction<InputsValType>) => {
       state.inputValue = action.payload;
     },
     setSaveInputValue: (state, action: PayloadAction<InputsValType>) => {
       state.saveInputValue = action.payload;
     },
-    /* user function */
+    // user function
     setAddUser: (state, action: PayloadAction<UserType>) => {
       state.users.push(action.payload);
     },
@@ -88,9 +88,9 @@ const InputSlice = createSlice({
     setUpdateUser: (state, action: PayloadAction<any>) => {
       const { id, user } = action.payload;
 
-      /*       const index = state.users.findIndex((u) => u.id === id);
-      if (index === -1) return;
-      state.users[index] = { ...state.users[index], ...user }; */
+      //     const index = state.users.findIndex((u) => u.id === id);
+      //if (index === -1) return;
+      //state.users[index] = { ...state.users[index], ...user };
       let UpdateUser = [...state.users];
       UpdateUser = UpdateUser.map((item, _index) => {
         const update = item.id === id ? { ...item, ...user } : item;
@@ -118,13 +118,13 @@ const InputSlice = createSlice({
       const searchWord = action.payload.trim().toLowerCase();
 
       let filteredUser = [...state.users];
-      /* 
-      /// or 
-      let filteredUser = [...state.filteredUsers];
-      if (searchWord === "") {
-        state.filteredUsers = state.users;
-        return;
-      } */
+
+      /// or
+      //let filteredUser = [...state.filteredUsers];
+      // if (searchWord === "") {
+      //state.filteredUsers = state.users;
+      // return;
+      // }
       filteredUser = filteredUser.filter((item) => {
         return (
           item.firstname.toLowerCase().includes(searchWord) ||

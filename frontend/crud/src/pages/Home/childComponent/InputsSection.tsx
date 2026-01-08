@@ -108,7 +108,7 @@ export default function InputsSection({ InputArr }: InputeSectionPropsType) {
 
   const handleForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await AddUse(
+    const newUser = await AddUse(
       users,
       inputValue.firstname,
       inputValue.lastname,
@@ -116,10 +116,9 @@ export default function InputsSection({ InputArr }: InputeSectionPropsType) {
       inputValue.username,
       inputValue.usernumber
     );
-    if (!response || !response.data) return;
+    if (!newUser) return;
 
-    const { user } = response?.data;
-    dispatch(setAddUser(user));
+    dispatch(setAddUser(newUser));
   };
 
   return (

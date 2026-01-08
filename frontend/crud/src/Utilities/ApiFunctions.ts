@@ -124,12 +124,12 @@ export const AddUse = async (
       username,
       usernumber,
     };
-    const user = await axios.post(
+    const response = await axios.post(
       "https://crud-backend-3dgx.onrender.com/api/add-user",
       newUser
     );
 
-    return user;
+    return response.data.user;
   } catch (error) {
     console.log(error);
   }
