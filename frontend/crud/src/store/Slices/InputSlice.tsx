@@ -70,6 +70,7 @@ const InputSlice = createSlice({
     // user function
     setAddUser: (state, action: PayloadAction<UserType>) => {
       state.users.push(action.payload);
+      state.filteredUsers.push(action.payload);
     },
     setUsers: (state, action: PayloadAction<UserType[]>) => {
       state.users = action.payload;
@@ -84,6 +85,7 @@ const InputSlice = createSlice({
         });
 
       state.users = restUsers;
+      state.filteredUsers = restUsers;
     },
     setUpdateUser: (state, action: PayloadAction<any>) => {
       const { id, user } = action.payload;
@@ -97,6 +99,7 @@ const InputSlice = createSlice({
         return update;
       });
       state.users = UpdateUser;
+      state.filteredUsers = UpdateUser;
     },
     setSortUser: (state, action: PayloadAction<string>) => {
       const sortedUser = [...state.filteredUsers].sort((a, b) => {
