@@ -6,6 +6,12 @@ const PORT = process.env.PORT || 3600;
 
 app.use(express.json());
 app.use(cors());
+app.use(
+  cors({
+    origin: "https://crud-frontend-4l5s.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+  })
+);
 
 /* api */
 
@@ -17,5 +23,7 @@ app.use("/api", require("./Api Routes/UpdateUser"));
 /*  */
 
 app.listen(PORT, () => {
-  console.log(`🚀 Server running on http://localhost:${PORT}`);
+  console.log(
+    `🚀 Server running on https://crud-frontend-4l5s.onrender.com:${PORT}`
+  );
 });
