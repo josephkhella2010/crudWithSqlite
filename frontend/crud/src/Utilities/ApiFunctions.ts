@@ -17,7 +17,6 @@ export const getUsers = async (dispatch: AppDispatch) => {
     console.log(error);
   } finally {
     dispatch(setShowLoading(false));
-    dispatch(setShowLoading(true));
   }
 };
 
