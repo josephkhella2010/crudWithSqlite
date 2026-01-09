@@ -49,12 +49,11 @@ export const useStyles = createUseStyles({
     position: "absolute",
     top: "0px",
     right: "0px",
-    animation: "$moveDot 8s ease-in-out infinite",
+    animation: "$moveDot 4.5s ease-in-out infinite",
     animationFillMode: "both",
   },
 
   "@keyframes moveDot": {
-    /* enter from left */
     "0%": {
       transform: "translateX(-100vw)",
       opacity: 0,
@@ -103,7 +102,7 @@ export default function LoadingSection() {
                   className={classes.pointsContent}
                   style={
                     {
-                      animationDelay: `${i * 0.2}s`,
+                      animationDelay: `${i * 0.13}s`,
                       "--offset": `${i * -8}px`,
                     } as React.CSSProperties
                   }

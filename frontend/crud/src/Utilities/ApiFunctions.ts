@@ -86,6 +86,7 @@ export const fetchUpdateUser = async (
   dispatch: AppDispatch
 ) => {
   dispatch(setShowLoading(true));
+
   try {
     const response = await axios.put(
       `https://crud-backend-3dgx.onrender.com/api/update-user/${id}`,
