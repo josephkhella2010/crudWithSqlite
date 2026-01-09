@@ -22,7 +22,7 @@ export const getUsers = async (dispatch: AppDispatch) => {
 
 export const AddUse = async (
   users: InputsValType[],
-  dispatch: any,
+  dispatch: AppDispatch,
   firstname: string,
   lastname: string,
   email: string,

@@ -110,6 +110,7 @@ export default function InputsSection({ InputArr }: InputeSectionPropsType) {
     e.preventDefault();
     const newUser = await AddUse(
       users,
+      dispatch,
       inputValue.firstname,
       inputValue.lastname,
       inputValue.email,
