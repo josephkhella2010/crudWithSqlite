@@ -69,6 +69,20 @@ export const useStyles = createUseStyles({
       opacity: 0,
     },
   },
+  shakeLetter: {
+    display: "inline-block",
+    animation: "$shake 2s ease-in-out infinite",
+    marginLeft: "5px",
+  },
+  "@keyframes shake": {
+    "0%": { transform: "translateY(0px)" },
+
+    "50%": { transform: "translateY(10px)" },
+
+    "100%": {
+      transform: "translateY(0px)",
+    },
+  },
 });
 
 export default function LoadingSection() {
@@ -76,6 +90,10 @@ export default function LoadingSection() {
   const { showLoading } = useSelector((state: RootState) => state.InputeData);
   const span: number = 8;
   const spanNumber = Array.from({ length: span }, (_, i) => i);
+  const word = "Loading";
+  word.split("");
+
+  /* function */
   useEffect(() => {
     function showLoadingFun() {
       if (showLoading) {
@@ -92,7 +110,20 @@ export default function LoadingSection() {
   return (
     <div className={classes.loadingContainer}>
       <div className={classes.loadingSection}>
-        <h1>Loading</h1>
+        <h1>
+          {" "}
+          {word.split("").map((item, ind) => {
+            return (
+              <span
+                key={ind}
+                className={classes.shakeLetter}
+                style={{ animationDelay: `${ind * 0.2}s` }}
+              >
+                {item}
+              </span>
+            );
+          })}
+        </h1>
         <div className={classes.pointsContainer}>
           {spanNumber &&
             spanNumber.map((_item, i) => {
