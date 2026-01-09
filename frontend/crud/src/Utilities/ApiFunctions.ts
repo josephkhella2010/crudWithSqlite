@@ -1,11 +1,10 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 import type { InputsValType } from "./InterfacesType";
-import { useDispatch } from "react-redux";
 import { setShowLoading } from "../store/Slices/InputSlice";
+import type { AppDispatch } from "../store/store";
 
-const dispatch = useDispatch();
-export const getUsers = async () => {
+export const getUsers = async (dispatch: AppDispatch) => {
   dispatch(setShowLoading(true));
 
   try {
@@ -23,6 +22,7 @@ export const getUsers = async () => {
 
 export const AddUse = async (
   users: InputsValType[],
+  dispatch: any,
   firstname: string,
   lastname: string,
   email: string,
@@ -66,7 +66,7 @@ export const AddUse = async (
   }
 };
 
-export const fetchDeleteUser = async (id?: number) => {
+export const fetchDeleteUser = async (dispatch: AppDispatch, id?: number) => {
   dispatch(setShowLoading(true));
 
   try {
@@ -82,7 +82,8 @@ export const fetchDeleteUser = async (id?: number) => {
 };
 export const fetchUpdateUser = async (
   id: number,
-  saveInputValue: InputsValType
+  saveInputValue: InputsValType,
+  dispatch: AppDispatch
 ) => {
   dispatch(setShowLoading(true));
   try {

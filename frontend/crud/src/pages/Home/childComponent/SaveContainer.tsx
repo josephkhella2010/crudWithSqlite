@@ -146,7 +146,7 @@ export default function SaveContainer({ InputArr }: inputsProps) {
   /*  save  function*/
   const handleSave = async () => {
     if (!currentIndex) return;
-    const user = await fetchUpdateUser(currentIndex, saveInputValue);
+    const user = await fetchUpdateUser(currentIndex, saveInputValue, dispatch);
     if (!user) return;
 
     dispatch(

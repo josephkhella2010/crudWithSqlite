@@ -46,14 +46,6 @@ const useStyles = createUseStyles({
   },
 
   td: {
-    /*   padding: "10px 12px",
-    textAlign: "left",
-    border: "1px solid #e5e7eb",
-    whiteSpace: "normal",
-    wordBreak: "break-word",
-    overflowWrap: "anywhere",
-    height: "100%",
-    backgroundColor: "red", */
     padding: "10px 12px",
     border: "1px solid #e5e7eb",
     whiteSpace: "normal",
@@ -125,35 +117,6 @@ const useStyles = createUseStyles({
   btnMainContainer: {
     borderBottom: "1px solid #e5e7eb",
   },
-
-  /*   btnContainer: {
-    display: "flex",
-    gap: "15px",
-    justifyContent: "center",
-    "@media (max-width: 600px)": {
-      flexDirection: "column",
-      gap: "5px",
-    },
-    "& button": {
-      backgroundColor: "transparent",
-      padding: "8px",
-      border: "1px solid black",
-      cursor: "pointer",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      "@media (max-width: 600px)": {
-        width: "100%",
-        padding: "0px",
-      },
-    },
-    "& button:first-of-type": {
-      color: "green",
-    },
-    "& button:nth-of-type(2)": {
-      color: "red",
-    },
-  }, */
 });
 
 export default function TableContainer() {
@@ -166,7 +129,7 @@ export default function TableContainer() {
   /* fetch users */
   useEffect(() => {
     const fetchUsers = async () => {
-      const users = await getUsers();
+      const users = await getUsers(dispatch);
       dispatch(setUsers(users));
     };
     fetchUsers();
@@ -174,7 +137,7 @@ export default function TableContainer() {
 
   /* delete User */
   const handleDelete = async (id: number) => {
-    await fetchDeleteUser(id);
+    await fetchDeleteUser(dispatch, id);
     dispatch(setDeleteUser(id));
   };
   console.log("filteredUsers", filteredUsers);
