@@ -35,6 +35,7 @@ export const useStyles = createUseStyles({
   searchBarContent: {
     display: "flex",
     alignItems: "center",
+    justifyContent: "space-between",
     height: "40px",
     borderRadius: "25px",
     cursor: "pointer",
@@ -61,6 +62,11 @@ export const useStyles = createUseStyles({
   searchIconContainer: {
     background: "transparent",
     cursor: "pointer",
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    width: "30px",
+    paddingRight: "15px",
   },
 });
 

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import type { RootState } from "../../store/store";
 import SaveContainer from "./childComponent/SaveContainer";
 import SearchContainer from "./childComponent/SearchContainer";
+import LoadingSection from "./childComponent/LoadingSection";
 
 /*  */
 
@@ -51,12 +52,13 @@ export const useStyles = createUseStyles({
 
 export default function HomePage() {
   const classes = useStyles();
-  const { showSaveSection } = useSelector(
+  const { showSaveSection, showLoading } = useSelector(
     (state: RootState) => state.InputeData
   );
 
   return (
     <div className={classes.wrapper}>
+      {showLoading && <LoadingSection />}
       <FirstContainer />
       <SearchContainer />
       <InputsSection InputArr={InputArr} />

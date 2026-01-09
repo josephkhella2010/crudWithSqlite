@@ -93,16 +93,15 @@ const useStyles = createUseStyles({
     display: "flex",
     gap: "15px",
     justifyContent: "center",
-    alignItems: "stretch", // stretch buttons vertically
-    flex: 1, // fill td height
+    padding: "10px",
     "& button": {
-      flex: 1, // fill container height
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
       border: "1px solid black",
       backgroundColor: "transparent",
       cursor: "pointer",
+      padding: "10px",
     },
     "& button:first-of-type": {
       color: "green",
@@ -110,14 +109,21 @@ const useStyles = createUseStyles({
     "& button:nth-of-type(2)": {
       color: "red",
     },
-    "@media (max-width: 600px)": {
+    "@media (max-width: 650px)": {
       flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: "4px 3px",
+
       gap: "5px",
       "& button": {
-        flex: "unset", // allow height shrink for column layout
-        width: "100%",
+        width: "90%",
+        padding: "3px",
       },
     },
+  },
+  btnMainContainer: {
+    borderBottom: "1px solid #e5e7eb",
   },
 
   /*   btnContainer: {
@@ -221,7 +227,7 @@ export default function TableContainer() {
                   <td className={classes.td}>{item.email}</td>
                   <td className={classes.td}>{item.username}</td>
                   <td className={classes.td}>{formatUserNumber}</td>
-                  <td className={`${classes.td} btnCell`}>
+                  <td className={`${classes.btnMainContainer} btnCell`}>
                     <div className={` ${classes.btnContainer}`}>
                       <button title="Edit" onClick={() => handleEdit(item.id)}>
                         <FaEdit />

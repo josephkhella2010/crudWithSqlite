@@ -14,8 +14,16 @@ interface InputSliceType {
   DropDownVal: DorpDownArrType;
   showDropDown: boolean;
   searchVal: string;
+  showLoading: boolean;
 }
 const initialState: InputSliceType = {
+  users: [],
+  filteredUsers: [],
+  currentIndex: 0,
+  showSaveSection: false,
+  showDropDown: false,
+  searchVal: "",
+  showLoading: false,
   inputValue: {
     firstname: "",
     lastname: "",
@@ -23,10 +31,6 @@ const initialState: InputSliceType = {
     username: "",
     usernumber: "",
   },
-  users: [],
-  filteredUsers: [],
-  currentIndex: 0,
-  showSaveSection: false,
   saveInputValue: {
     firstname: "",
     lastname: "",
@@ -38,8 +42,6 @@ const initialState: InputSliceType = {
     name: "Sort by first name",
     val: "",
   },
-  showDropDown: false,
-  searchVal: "",
 };
 
 const InputSlice = createSlice({
@@ -59,6 +61,9 @@ const InputSlice = createSlice({
     },
     setShowDropDown: (state, action: PayloadAction<boolean>) => {
       state.showDropDown = action.payload;
+    },
+    setShowLoading: (state, action: PayloadAction<boolean>) => {
+      state.showLoading = action.payload;
     },
     // users inputValue
     setInputValue: (state, action: PayloadAction<InputsValType>) => {
@@ -155,5 +160,6 @@ export const {
   setSearchVal,
   setSortUser,
   setFilteredUser,
+  setShowLoading,
 } = InputSlice.actions;
 export default InputSlice.reducer;
